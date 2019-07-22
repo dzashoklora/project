@@ -1,0 +1,111 @@
+
+#include<stdio.h>
+#include<conio.h>
+int list();
+void diposite();
+void last();
+void transfer();
+void withdrow();
+void checkDetail();
+int TotalAmount=1000,Amount,Amo,Tr,TotalDiposite=0,TotalWith=0,TotalTr=0;
+int Acc;
+char a[50];
+void main()
+{
+	printf("\nEnter your name :");
+	gets(a);
+	printf("\nEnter your Acc Number :");
+	scanf("%d",&Acc);
+	while(1)
+	{
+	system("cls");
+	switch(list())
+	  {
+		  case 1:
+		  	  diposite();
+		  	  TotalDiposite+=Amount;
+		  	  break;
+		  case 2:
+		  	  withdrow();
+		  	  if
+		  	  (Amo<=TotalAmount)
+		  	  TotalWith+=Amo;
+		  	  break;
+		  case 3:
+		  	  transfer();
+		  	  if
+		  	  (Tr<=TotalAmount)
+		  	  TotalTr+=Tr;
+		  	  break;
+		  case 4:
+		      checkDetail();
+		      break;
+		  	break;
+		  case 5:
+		  	system("cls");
+		  	last();
+		  	getch();
+		    exit(0);
+		  default:
+			  printf("\nInvalid choice");
+	  }//end of switch
+	  getch();
+    }//end of while
+}
+int list()
+{
+	int ch;
+	printf("\n1 Diposite Amount:");
+	printf("\n2 Withdrow Amount:");
+	printf("\n3 Transfer Amount:");
+	printf("\n4 Check Details:");
+	printf("\n5 Exit");
+	printf("\nEnter your choice:");
+	scanf("%d",&ch);
+	return(ch);
+}
+void diposite()
+{
+	int Amount;
+	printf("enter the amount you want to diposit");
+	scanf("%d",&Amount);
+	TotalAmount+=Amount;
+}
+void withdrow()
+{
+	printf("\nEnter the amount u wish to withdrow");
+	scanf("%d",&Amo);
+	if
+	(Amo<=TotalAmount)
+	TotalAmount-=Amo;
+	else
+	printf("\nLess amount withdrow is not possible :");
+}
+void transfer()
+{
+	printf("\nEnter the amount you want to transfer");
+	scanf("%d",&Tr);
+	if
+	(Tr<=TotalAmount)
+	TotalAmount-=Tr;
+	else
+	printf("\nLess amount transfer is not possible :");
+}
+void checkDetail()
+{
+	printf("\nTotal Amount=%d",TotalAmount);
+	printf("\nTotal Diposited Amount=%d",TotalDiposite);
+	printf("\nTotal Withdrown Amount=%d",TotalWith);
+	printf("\nTotal Transfered Amount=%d",TotalTr);
+}
+void last()
+{
+	printf("\n***************************************************\n");
+	printf("\nYour Name=%s",a);
+	printf("\nAccount Number=%d",Acc);
+	printf("\nTotal Amount=%d",TotalAmount);
+	printf("\nTotal Diposited Amount=%d",TotalDiposite);
+	printf("\nTotal Withdrown Amount=%d",TotalWith);
+	printf("\nTotal Transfered Amount=%d",TotalTr);
+	printf("\n**********************THANKYOU**********************");
+}
